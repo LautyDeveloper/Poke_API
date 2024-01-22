@@ -1,10 +1,15 @@
+//Traemos los Elementos del DOM
 const resultContainer = document.querySelector(".resultado_container")
 const form = document.querySelector("#form")
 const input = document.querySelector("#form_input")
 
+
+//Creamos la Llamada a la API
 const fetchPokemon = async(number) =>{
     try {
+        //Pasandole la URL junto con el Numero de pokemon que debe traer
         const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${number}`)
+        //Y pasamos res a formato JSON
         const data = await res.json()
         return data;
     } catch {
@@ -12,12 +17,14 @@ const fetchPokemon = async(number) =>{
     }
 }
 
+//Funcion que nos devuelve un span con cada tipo que tiene ese pokemon
 const allTypes = (types) =>{
     return types.map((tipo) => {
         return `<span class="${tipo.type.name}">${tipo.type.name.toUpperCase()}</span>`
       }).join(" ")
 }
 
+//Renderizamos la card del Pokemon
 const renderPokemon = (pokemon) =>{
     const {name, sprites, height, weight, types} = pokemon;
     return `
@@ -37,6 +44,7 @@ const renderPokemon = (pokemon) =>{
     `
 }
 
+//Mostramos el Error de Vacio
 const showEmptyError = () =>{
     resultContainer.innerHTML = `
     <div class="Error">
@@ -49,6 +57,7 @@ const showEmptyError = () =>{
     `
 }
 
+//Mostramos el Error de No encontrado
 const showNotFoundedError = () =>{
     resultContainer.innerHTML = `
         <div class="Error">
@@ -58,16 +67,21 @@ const showNotFoundedError = () =>{
         `
 }
 
+//Nos fijamos si el input esta vacio
 const isEmpty = (valor) =>{
     return !valor
 }
 
+//Renderizamos el Resultado, ya sea no encontrado o la card
 const renderResult = async(pokemon) =>{
+    //newPokemon sera el Pokemon que devuelva la Api
     const newPokemon = await pokemon;
 
+        //Preguntamos si no hay newPokemon quiere decir que no fue encontrado
     if (!newPokemon){
         showNotFoundedError()
     }else{
+        //Sino renderizamos la Card
         resultContainer.innerHTML = renderPokemon(newPokemon)
     }
 }
