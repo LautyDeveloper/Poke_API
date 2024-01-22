@@ -1,0 +1,161 @@
+@use 'mixins';
+@use 'normalize';
+body{
+    @include mixins.crearFlex(column, center, center, center, inherit);
+    background-color: rgb(32, 32, 32);
+    h1{
+        font-size: 3rem;
+        color: #ff4500;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    form{
+        @include mixins.crearFlex(column, space-between, center, center, inherit);
+        width: 60%;
+        height: 100px;
+        margin-top: 15px;
+        label{
+            color: white;
+            font-size: 1.5rem;
+        }
+        .search_container{
+            @include mixins.crearFlex(row, space-between, center, center, inherit);
+            width: 100%;
+            .input_container{
+                width: 44%;
+                height: 40px;
+                background-color: rgb(52, 52, 52);
+                @include mixins.crearFlex(row, center, center, center, inherit);
+                border-radius: 10px;
+                img{
+                    width: 10%;
+                    height: 50%;
+                }
+                input{
+                    width: 80%;
+                    height: 90%;
+                    background-color: rgb(52, 52, 52);
+                    padding-left: 15px;
+                    outline: none;
+                    border: none;
+                    color: wheat;
+                }
+            }
+            button{
+                border-radius: 10px;
+                background-color: #ff4500;
+                width: 54%;
+                height: 100%;
+                border: none;
+                outline: none;
+                color: white;
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: 600;
+                font-size: 1.0rem;
+                letter-spacing: 3px;
+            }
+        }
+    }
+    .resultado_container{
+        @include mixins.crearFlex(column, center, center, center, inherit);
+        width: 80%;
+        height: 400px;
+        margin-top: 40px;
+        .card{
+            background-color: rgb(60, 60, 60);
+            border-radius: 20px;
+            @include mixins.crearFlex(column, center, center, center, inherit);
+            width: 40%;
+            height: 100%;
+            .contenido{
+                @include mixins.crearFlex(column, space-around, center, center, inherit);
+                height: 100%;
+                color: white;
+                img{
+                    width: 90%;
+                    height: 210px;
+                }
+                span{
+                    font-size: 1.2rem;
+                    font-weight: 600;
+                }
+            }
+        }
+        .Error{
+            color: white;
+            font-size: 1.5rem;
+        }
+    }
+}
+
+.normal {
+    background-color: #aa9;
+  }
+  
+  .fire {
+    background-color: #f42;
+  }
+  
+  .grass {
+    background-color: #7c5;
+  }
+  
+  .poison {
+    background-color: #a59;
+  }
+  
+  .water {
+    background-color: #39f;
+  }
+  
+  .electric {
+    background-color: #fc3;
+  }
+  
+  .ice {
+    background-color: #6cf;
+  }
+  
+  .fighting {
+    background-color: #b54;
+  }
+  
+  .ground {
+    background-color: #db5;
+  }
+  
+  .flying {
+    background-color: #89f;
+  }
+  
+  .psychic {
+    background-color: #f59;
+  }
+  
+  .bug {
+    background-color: #ab2;
+  }
+  
+  .rock {
+    background-color: #ba6;
+  }
+  
+  .ghost {
+    background-color: #66b;
+  }
+  
+  .dragon {
+    background-color: #76e;
+  }
+  
+  .dark {
+    background-color: rgb(7, 3, 1);
+  }
+  
+  .steel {
+    background-color: #aab;
+  }
+  
+  .fairy {
+    background-color: #e9e;
+  }
+  
